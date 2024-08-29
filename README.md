@@ -4,9 +4,9 @@
 
 ### INICIO 
 
-`show databases` -> mostrar todos databases
+`show databases // mostrar todos databases`
 
-`use('nome_database')` -> cria/usar database
+`use('nome_database') // criar/usar database`
 
 ### INSERTS 
 Cria uma tabela (collection) e insere um dado 
