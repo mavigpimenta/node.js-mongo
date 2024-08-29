@@ -73,15 +73,20 @@ db.nome_tabela.insertMany(arrpeople)
 
 ### / UPDATES /
 
+Atualizando os dados a partir do seu id
+```ruby
 db.nome_tabela.updateOne(
     { _id: ObjectId('64b575535e5947a5e8dd26bd') },
     { $set:{ name:"Alisson Alterado" }}
-); -> atualizando os dados a partir do seu _id
-
+); 
+```
+Atualizando todos os dados iguais ao primeiro parametro para que todos fiquem iguais ao segundo
+```ruby
 db.nome_tabela.updateMany(
     { salary: 1234 },
     { $set:{ salary:12345 }}
-); -> atualizando todos os dados iguais ao primeiro parametro para que todos fiquem iguais ao segundo
+); 
+```
 
 ### / DELETES /
 
