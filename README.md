@@ -90,13 +90,19 @@ db.nome_tabela.updateMany(
 
 ### / DELETES /
 
+Apaga o primeiro item que ele encontrar semelhante ao parametro
+```ruby
 db.nome_tabela.deleteOne({
     name: /Alisson/
-}) -> apaga o primeiro item que ele encontrar semelhante ao parametro
+}) 
+```
 
+Apaga tudo que conter o parametro
+```ruby
 db.nome_tabela.deleteMany({
     name: /n/
-}) -> apaga tudo que conter o parametro
+})
+```
 
 ## Node.js
 
