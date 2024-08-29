@@ -52,16 +52,16 @@ db.nome_tabela.find({ salary: { $gt: 123 } }) -> encontra tudo que tem um valor 
 db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 }) -> a busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true
 
 ### / OPERADORES DE CONSULTA /
-| Operador | O que faz|
-| ------------------- |
-| $eq | Corresponde a valores que são iguais a um valor especificado. |
-| $gt | Corresponde a valores maiores que um valor especificado. |
-| $gte |  Corresponde a valores maiores ou iguais a um valor especificado. |
-| $in | Corresponde a qualquer um dos valores especificados em uma matriz. |
-| $lt | Corresponde a valores que são menores que um valor especificado. |
-| $lte |  Corresponde a valores menores ou iguais a um valor especificado. |
-| $ne | Corresponde a todos os valores que não são iguais a um valor especificado. |
-| $nin |  Não corresponde a nenhum dos valores especificados em uma matriz |
+| Operador | O que faz |
+| --- | --- |
+| `$eq` | Corresponde a valores que são iguais a um valor especificado. |
+| `$gt` | Corresponde a valores maiores que um valor especificado. |
+| `$gte` |  Corresponde a valores maiores ou iguais a um valor especificado. |
+| `$in` | Corresponde a qualquer um dos valores especificados em uma matriz. |
+| `$lt` | Corresponde a valores que são menores que um valor especificado. |
+| `$lte` |  Corresponde a valores menores ou iguais a um valor especificado. |
+| `$ne` | Corresponde a todos os valores que não são iguais a um valor especificado. |
+| `$nin` |  Não corresponde a nenhum dos valores especificados em uma matriz |
 
 ### / UPDATES /
 
