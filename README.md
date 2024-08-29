@@ -2,13 +2,13 @@
 
 ## MongoDB
 
-### INICIO 
+### Inicio 
 
 `show databases // mostrar todos databases`
 
 `use('nome_database') // criar/usar database`
 
-### INSERTS 
+### Inserts 
 Cria uma tabela (collection) e insere um dado 
 ```ruby
 db.nome_tabela.insertOne({
@@ -49,7 +49,7 @@ const arrpeople = [
 db.nome_tabela.insertMany(arrpeople)
 ```
 
-### SELECTS 
+### Selects 
 | Code | O que faz |
 | --- | --- |
 | `db.nome_tabela.find()` | Encontra todos os dados da tabela |
@@ -59,7 +59,7 @@ db.nome_tabela.insertMany(arrpeople)
 | `db.nome_tabela.find({ salary: { $gt: 123 } })` | Encontra tudo que tem um valor maior do que o parametro |
 | `db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 })` | A busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true |
 
-### OPERADORES DE CONSULTA
+### Operadores de Consulta
 | Operador | O que faz |
 | --- | --- |
 | `$eq` | Corresponde a valores que são iguais a um valor especificado. |
@@ -71,7 +71,7 @@ db.nome_tabela.insertMany(arrpeople)
 | `$ne` | Corresponde a todos os valores que não são iguais a um valor especificado. |
 | `$nin` |  Não corresponde a nenhum dos valores especificados em uma matriz |
 
-### / UPDATES /
+### Updates
 
 Atualizando os dados a partir do seu id
 ```ruby
@@ -88,7 +88,7 @@ db.nome_tabela.updateMany(
 ); 
 ```
 
-### / DELETES /
+### Deletes
 
 Apaga o primeiro item que ele encontrar semelhante ao parametro
 ```ruby
