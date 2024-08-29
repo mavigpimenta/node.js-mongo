@@ -44,13 +44,14 @@ const arrpeople = [
 db.nome_tabela.insertMany(arrpeople) -> insere varios itens de uma array
 
 ### SELECTS 
-
-db.nome_tabela.find() -> encontra todos os dados da tabela
-db.nome_tabela.find({ name: 'A' }) -> encontra os dados que sejam semelhantes ao parametro
-db.nome_tabela.find({ name: /n/ }); -> dessa forma sera exibido tudo que contem o parametro, assim como o LIKE do sql
-db.nome_tabela.find({ $and: [{ name: 'Alisson' }, { lastname: 'Balem' }] }) -> encontra o que tiver ambos parametros
-db.nome_tabela.find({ salary: { $gt: 123 } }) -> encontra tudo que tem um valor maior do que o parametro
-db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 }) -> a busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true
+| Code | O que faz |
+| --- | --- |
+| `db.nome_tabela.find()` | Encontra todos os dados da tabela |
+| `db.nome_tabela.find({ name: 'A' })` | Encontra os dados que sejam semelhantes ao parametro |
+| `db.nome_tabela.find({ name: /n/ })` | Dessa forma sera exibido tudo que contem o parametro, assim como o LIKE do sql |
+| `db.nome_tabela.find({ $and: [{ name: 'Maria' }, { lastname: 'Pimenta' }] })` | Encontra o que tiver ambos parametros |
+| `db.nome_tabela.find({ salary: { $gt: 123 } })` | Encontra tudo que tem um valor maior do que o parametro |
+| `db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 })` | A busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true |
 
 ### OPERADORES DE CONSULTA
 | Operador | O que faz |
