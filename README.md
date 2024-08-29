@@ -5,6 +5,7 @@
 ### INICIO 
 
 `show databases` -> mostrar todos databases
+
 `use('nome_database')` -> cria/usar database
 
 ### INSERTS 
