@@ -12,8 +12,8 @@
 Cria uma tabela (collection) e insere um dado 
 ```ruby
 db.nome_tabela.insertOne({
-    name: "Alisson",
-    lastname: "Ferro",
+    name: "Maria",
+    lastname: "Pimenta",
     salary: 1234
 }) 
 ```
@@ -21,13 +21,13 @@ Insere varios de uma so vez
 ```ruby
 db.nome_tabela.insertMany([
     {
-        name: 'Queila',
-        lastname: 'Lima',
+        name: 'Maria',
+        lastname: 'Pimenta',
         salary: 1234
     },
     {
-        name: 'Donathan',
-        lastname: 'Goncalves',
+        name: 'Mavi',
+        lastname: 'Garcia',
         salary: 1234
     },
 ]) 
@@ -36,13 +36,13 @@ Insere varios itens de uma array
 ```ruby
 const arrpeople = [
     {
-        name: 'Luis',
-        lastname: 'Balem',
+        name: 'Vitoria',
+        lastname: 'Pimenta',
         salary: 1234
     },
     {
-        name: 'Leonardo',
-        lastname: 'Trevisan',
+        name: 'Maria',
+        lastname: 'Garcia',
         salary: 1234
     },
 ]
@@ -53,11 +53,11 @@ db.nome_tabela.insertMany(arrpeople)
 | Code | O que faz |
 | --- | --- |
 | `db.nome_tabela.find()` | Encontra todos os dados da tabela |
-| `db.nome_tabela.find({ name: 'A' })` | Encontra os dados que sejam semelhantes ao parametro |
+| `db.nome_tabela.find({ name: 'M' })` | Encontra os dados que sejam semelhantes ao parametro |
 | `db.nome_tabela.find({ name: /n/ })` | Dessa forma sera exibido tudo que contem o parametro, assim como o LIKE do sql |
 | `db.nome_tabela.find({ $and: [{ name: 'Maria' }, { lastname: 'Pimenta' }] })` | Encontra o que tiver ambos parametros |
 | `db.nome_tabela.find({ salary: { $gt: 123 } })` | Encontra tudo que tem um valor maior do que o parametro |
-| `db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 })` | A busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true |
+| `db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname: 1 })` | A busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true |
 
 ### Operadores de Consulta
 | Operador | O que faz |
@@ -77,14 +77,14 @@ Atualizando os dados a partir do seu id
 ```ruby
 db.nome_tabela.updateOne(
     { _id: ObjectId('64b575535e5947a5e8dd26bd') },
-    { $set:{ name:"Alisson Alterado" }}
+    { $set:{ name:"Mavi Alterada" }}
 ); 
 ```
 Atualizando todos os dados iguais ao primeiro parametro para que todos fiquem iguais ao segundo
 ```ruby
 db.nome_tabela.updateMany(
     { salary: 1234 },
-    { $set:{ salary:12345 }}
+    { $set:{ salary: 12345 }}
 ); 
 ```
 
@@ -93,7 +93,7 @@ db.nome_tabela.updateMany(
 Apaga o primeiro item que ele encontrar semelhante ao parametro
 ```ruby
 db.nome_tabela.deleteOne({
-    name: /Alisson/
+    name: /Maria/
 }) 
 ```
 
@@ -160,7 +160,7 @@ module.exports = function() {
 
 ### .env 
 ```ruby
-SECRET = "mavizoka123" // pode ser o que quiser
+SECRET = "sua_chave_aqui"
 ```
 
 ### index.js
