@@ -2,12 +2,12 @@
 
 ## MongoDB
 
-# / INICIO /
+### / INICIO /
 
 show databases -> mostrar todos databases
 use('nome_database') -> cria/usar database
 
-# / INSERTS / 
+### / INSERTS / 
 
 db.nome_tabela.insertOne({
     name: "Alisson",
@@ -42,7 +42,7 @@ const arrpeople = [
 ]
 db.nome_tabela.insertMany(arrpeople) -> insere varios itens de uma array
 
-# / SELECTS /
+### / SELECTS /
 
 db.nome_tabela.find() -> encontra todos os dados da tabela
 db.nome_tabela.find({ name: 'A' }) -> encontra os dados que sejam semelhantes ao parametro
@@ -51,7 +51,7 @@ db.nome_tabela.find({ $and: [{ name: 'Alisson' }, { lastname: 'Balem' }] }) -> e
 db.nome_tabela.find({ salary: { $gt: 123 } }) -> encontra tudo que tem um valor maior do que o parametro
 db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 }) -> a busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true
 
-# / OPERADORES DE CONSULTA /
+### / OPERADORES DE CONSULTA /
 
 $eq -> Corresponde a valores que são iguais a um valor especificado.
 $gt -> Corresponde a valores maiores que um valor especificado.
@@ -62,7 +62,7 @@ $lte ->  Corresponde a valores menores ou iguais a um valor especificado.
 $ne -> Corresponde a todos os valores que não são iguais a um valor especificado.
 $nin ->  Não corresponde a nenhum dos valores especificados em uma matriz
 
-# / UPDATES /
+### / UPDATES /
 
 db.nome_tabela.updateOne(
     { _id: ObjectId('64b575535e5947a5e8dd26bd') },
@@ -74,7 +74,7 @@ db.nome_tabela.updateMany(
     { $set:{ salary:12345 }}
 ); -> atualizando todos os dados iguais ao primeiro parametro para que todos fiquem iguais ao segundo
 
-# / DELETES /
+### / DELETES /
 
 db.nome_tabela.deleteOne({
     name: /Alisson/
@@ -86,7 +86,7 @@ db.nome_tabela.deleteMany({
 
 ## Node.js
 
-# Iniciar Projeto
+### Iniciar Projeto
 
 npm init -y
 npm i body-parser config express nodemon mongoose cors dotenv bcryptjs jsonwebtoken
@@ -94,9 +94,9 @@ npm i body-parser config express nodemon mongoose cors dotenv bcryptjs jsonwebto
 adicionar no script do package.json:
 "start": "nodemon index.js"
 
-# Node.js + Mongoose
+## Node.js + Mongoose
 
-# index.js
+### index.js
 
 const express = require('express');
 const router = require('./routes');
@@ -111,7 +111,7 @@ const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = server;
 
-# db.js
+### db.js
 
 const mongoose = require('mongoose');
 const config = require('config')
@@ -122,7 +122,7 @@ module.exports = function() {
         .then(() => console.log(`connected to ${db}`));
 }
 
-# default.json
+### default.json
 
 {
     "db": "mongodb://127.0.0.1:27017/nome_database
@@ -130,24 +130,24 @@ module.exports = function() {
 
 ## Node.js + CORS + JWT + Hash
 
-# .env 
+### .env 
 SECRET = "mavizoka123" -> pode ser o que quiser
 
-# index.js
+### index.js
 app.use(cors({
         origin: '*'
 }));
 
-# Hash na Senha
+### Hash na Senha
 const salt = await bcrypt.genSalt(12);
 const passwordHash = await bcrypt.hash(password, salt);
 
-# Verificação Bcrypt
+### Verificação Bcrypt
  if(!bcrypt.compare(password, user.password)) {
      return res.status(400).send({ message: "Invalid Email or password" });
 }
 
-# Criação JWTToken
+### Criação JWTToken
 const secret = process.env.SECRET;
 const token = jwt.sign(
     {
@@ -159,7 +159,7 @@ const token = jwt.sign(
     }
 );
 
-# Verificação JWTToken
+### Verificação JWTToken
 
 function verifyJWT(req, res, next){
     const token = req.headers['authorization'];
@@ -173,5 +173,5 @@ function verifyJWT(req, res, next){
     });
 }
 
-# Chamar a verificação na requisição
+### Chamar a verificação na requisição
 app.get('/clientes', verifyJWT, (req, res, next) => { })
