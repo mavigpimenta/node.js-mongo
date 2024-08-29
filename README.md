@@ -92,12 +92,14 @@ npm init -y
 npm i body-parser config express nodemon mongoose cors dotenv bcryptjs jsonwebtoken
 
 adicionar no script do package.json:
+```ruby
 "start": "nodemon index.js"
+```
 
 ## Node.js + Mongoose
 
 ### index.js
-
+```ruby
 const express = require('express');
 const router = require('./routes');
 const app = express();
@@ -110,9 +112,10 @@ const port = 8080;
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = server;
+```
 
 ### db.js
-
+```ruby
 const mongoose = require('mongoose');
 const config = require('config')
 
@@ -121,33 +124,44 @@ module.exports = function() {
     mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => console.log(`connected to ${db}`));
 }
+```
 
 ### default.json
-
+```ruby
 {
     "db": "mongodb://127.0.0.1:27017/nome_database
 }
+```
 
 ## Node.js + CORS + JWT + Hash
 
 ### .env 
-SECRET = "mavizoka123" -> pode ser o que quiser
+```ruby
+SECRET = "mavizoka123" // pode ser o que quiser
+```
 
 ### index.js
+```ruby
 app.use(cors({
         origin: '*'
 }));
+```
 
 ### Hash na Senha
+```ruby
 const salt = await bcrypt.genSalt(12);
 const passwordHash = await bcrypt.hash(password, salt);
+```
 
 ### Verificação Bcrypt
+```ruby
  if(!bcrypt.compare(password, user.password)) {
      return res.status(400).send({ message: "Invalid Email or password" });
 }
+```
 
 ### Criação JWTToken
+```ruby
 const secret = process.env.SECRET;
 const token = jwt.sign(
     {
@@ -158,9 +172,11 @@ const token = jwt.sign(
         expiresIn: '2d'
     }
 );
+```
 
 ### Verificação JWTToken
 
+```ruby
 function verifyJWT(req, res, next){
     const token = req.headers['authorization'];
     if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
@@ -172,6 +188,9 @@ function verifyJWT(req, res, next){
       next();
     });
 }
+```
 
 ### Chamar a verificação na requisição
+```ruby
 app.get('/clientes', verifyJWT, (req, res, next) => { })
+```
