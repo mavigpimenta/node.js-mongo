@@ -9,13 +9,16 @@
 `use('nome_database')` -> cria/usar database
 
 ### INSERTS 
-
+Cria uma tabela (collection) e insere um dado 
+```ruby
 db.nome_tabela.insertOne({
     name: "Alisson",
     lastname: "Ferro",
     salary: 1234
-}) -> cria uma tabela (collection) e insere um dado 
-
+}) 
+```
+Insere varios de uma so vez
+```ruby
 db.nome_tabela.insertMany([
     {
         name: 'Queila',
@@ -27,8 +30,10 @@ db.nome_tabela.insertMany([
         lastname: 'Goncalves',
         salary: 1234
     },
-]) -> insere varios de uma so vez
-
+]) 
+```
+Insere varios itens de uma array
+```ruby
 const arrpeople = [
     {
         name: 'Luis',
@@ -41,7 +46,8 @@ const arrpeople = [
         salary: 1234
     },
 ]
-db.nome_tabela.insertMany(arrpeople) -> insere varios itens de uma array
+db.nome_tabela.insertMany(arrpeople)
+```
 
 ### SELECTS 
 | Code | O que faz |
