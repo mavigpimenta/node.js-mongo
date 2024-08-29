@@ -2,12 +2,12 @@
 
 ## MongoDB
 
-### / INICIO /
+### INICIO 
 
-show databases -> mostrar todos databases
-use('nome_database') -> cria/usar database
+`show databases` -> mostrar todos databases
+`use('nome_database')` -> cria/usar database
 
-### / INSERTS / 
+### INSERTS 
 
 db.nome_tabela.insertOne({
     name: "Alisson",
@@ -42,7 +42,7 @@ const arrpeople = [
 ]
 db.nome_tabela.insertMany(arrpeople) -> insere varios itens de uma array
 
-### / SELECTS /
+### SELECTS 
 
 db.nome_tabela.find() -> encontra todos os dados da tabela
 db.nome_tabela.find({ name: 'A' }) -> encontra os dados que sejam semelhantes ao parametro
@@ -51,7 +51,7 @@ db.nome_tabela.find({ $and: [{ name: 'Alisson' }, { lastname: 'Balem' }] }) -> e
 db.nome_tabela.find({ salary: { $gt: 123 } }) -> encontra tudo que tem um valor maior do que o parametro
 db.nome_tabela.find({ salary: { $gte: 123 } }, { name: 1, lastname:1 }) -> a busca é em base do primeiro parametro, mas so retorna os dados pedidos no segundo parametro, o 1 é o true
 
-### / OPERADORES DE CONSULTA /
+### OPERADORES DE CONSULTA
 | Operador | O que faz |
 | --- | --- |
 | `$eq` | Corresponde a valores que são iguais a um valor especificado. |
